@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded_white"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/btnOption"
+        android:layout_margin="10dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/bg_cb_option_xml"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:layout_width="@dimen/circle_button_height"
+        android:layout_height="@dimen/circle_button_height" />
+
+    <texus.app.controls.TextViewWithFont
+        android:id="@+id/tvOptionText"
+        android:layout_toRightOf="@+id/btnOption"
+        android:text="Option"
+        android:textColor="@color/main_text_color"
+        android:layout_margin="5dp"
+        android:paddingTop="20dp"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabIndicatorRight"
+        android:visibility="invisible"
+        app:fabSize="mini"
+
+        android:layout_width="@dimen/fab_width"
+        app:backgroundTint="@color/ans_correct"
+        android:layout_height="@dimen/fab_width"
+        android:src="@drawable/ic_check" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabIndicatorWrong"
+        android:visibility="invisible"
+        app:fabSize="mini"
+
+        android:layout_width="@dimen/fab_width"
+        app:backgroundTint="@color/ans_wrong"
+        android:layout_height="@dimen/fab_width"
+        android:src="@drawable/ic_clear" />
+
+
+</RelativeLayout>

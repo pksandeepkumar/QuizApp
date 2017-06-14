@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="texus.quizapp.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#009688"
+        >
+        <ImageView
+            android:id="@+id/imSplashScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#55000000"/>
+
+        <TextView
+            android:id="@+id/tvBe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Be"
+            android:textSize="35dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/custom_switcher"
+            android:paddingBottom="10dp"
+            android:textColor="#FFF"/>
+
+        <com.sdsmdg.harjot.rotatingtext.RotatingTextWrapper
+            android:id="@+id/custom_switcher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+
+            />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avlProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:indicatorName="PacmanIndicator"
+            android:layout_marginBottom="5dp"
+            android:layout_above="@+id/tvPleaseWait"
+            />
+
+        <TextView
+            android:id="@+id/tvPleaseWait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please wait.. Downloading questions"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:paddingBottom="10dp"
+            android:textColor="#FFF"/>
+
+    </RelativeLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

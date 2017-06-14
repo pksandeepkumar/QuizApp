@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="texus.quizapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:text="Java"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:text="Quiz"/>
+
+
+    </LinearLayout>
+
+    <texus.app.controls.TextViewWithFont
+        android:id="@+id/tvStartQuiz"
+        android:background="@drawable/bg_rounded1_xml"
+        android:text="Start Quiz"
+        android:layout_centerInParent="true"
+        style="@style/style_button1"
+        android:onClick="startQuiz"/>
+
+    <texus.app.controls.TextViewWithFont
+        android:layout_marginTop="10dp"
+        android:id="@+id/tvScoreBoard"
+        android:layout_below="@+id/tvStartQuiz"
+        android:background="@drawable/bg_rounded2_xml"
+        android:layout_centerHorizontal="true"
+        android:text="Score Board"
+        style="@style/style_button1"
+        android:onClick="scoreBoard"/>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            style="@style/mp_wp"
+            android:gravity="center"
+            android:layout_marginBottom="10dp" >
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/wp_wp"
+                android:background="@drawable/blank_xml"
+                android:clickable="true"
+                android:onClick="chckForNewQuestions"
+                android:text=" Chek for new questions "
+                android:textColor="@color/home_text_color"
+                android:padding="@dimen/home_text_padding"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llBottom"
+            style="@style/wp_wp"
+            android:layout_marginBottom="10dp" >
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/wp_wp"
+                android:background="@drawable/blank_xml"
+                android:clickable="true"
+                android:onClick="shareAppTask"
+                android:text=" Share App "
+                android:textColor="@color/home_text_color"
+                android:padding="@dimen/home_text_padding"/>
+
+            <TextView
+                style="@style/wp_wp"
+                android:text=" | "
+                android:textColor="@color/home_text_color" />
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/wp_wp"
+                android:background="@drawable/blank_xml"
+                android:clickable="true"
+                android:onClick="reteUsTask"
+                android:text=" Rate Us "
+                android:textColor="@color/home_text_color"
+                android:padding="@dimen/home_text_padding"/>
+
+            <TextView
+                android:id="@+id/textView1"
+                style="@style/wp_wp"
+                android:text=" | "
+                android:textColor="@color/home_text_color" />
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/wp_wp"
+                android:background="@drawable/blank_xml"
+                android:clickable="true"
+                android:onClick="feedback"
+                android:text=" Feedback "
+                android:textColor="@color/home_text_color"
+                android:padding="@dimen/home_text_padding"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

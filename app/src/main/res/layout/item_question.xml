@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_rounded_white"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <Button
+            android:id="@+id/btnQuestion"
+            android:layout_width="@dimen/circle_button_height"
+            android:layout_height="@dimen/circle_button_height"
+            android:layout_margin="10dp"
+            android:text="Q"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:background="@drawable/bg_cb_question"
+            android:scaleType="fitCenter" />
+
+        <texus.app.controls.TextViewWithFont
+            android:id="@+id/tvQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@+id/btnQuestion"
+            android:paddingTop="20dp"
+            android:text="Option"
+            android:textColor="@color/main_text_color"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+
+</LinearLayout>

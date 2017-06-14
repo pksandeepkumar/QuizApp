@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00838F</color>
+    <color name="colorPrimaryDark">#00838F</color>
+    <color name="colorAccent">#00838F</color>
+
+    <color name="appColor">#00838F</color>
+
+    <color name="btn_1">#00838F</color>
+    <color name="btn_1_hover">#00b1c1</color>
+    <color name="btn_2">#607D8B</color>
+    <color name="btn_2_hover">#80a5b7</color>
+
+    <color name="cb_question">#607D8B</color>
+    <color name="cb_op">#3F51B5</color>
+    <color name="cb_op_hover">#677bea</color>
+
+
+    <color name="home_text_color">#6C6C6C</color>
+    <color name="main_text_color">#2d2d2d</color>
+
+    <color name="ans_correct">#43A047</color>
+    <color name="ans_wrong">#f44336</color>
+
+</resources>
