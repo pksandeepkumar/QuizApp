@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/mp_mp" >
+
+    <LinearLayout
+        style="@style/mp_wp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <RelativeLayout
+            style="@style/settings_rel1">
+
+            <ImageView
+                style="@style/settings_image_icon"
+                android:id="@+id/tvIcon1"
+                android:src="@drawable/ic_clock"/>
+
+            <texus.app.controls.TextViewWithBoldFont
+                android:id="@+id/tvHeadding1"
+                android:layout_toRightOf="@+id/tvIcon1"
+                android:layout_toLeftOf="@+id/swNotification"
+                android:text="Daily Notification Time"
+                style="@style/mp_wp"
+                />
+            <texus.app.controls.TextViewWithFont
+                android:id="@+id/tvHeadding2"
+                android:layout_below="@+id/tvHeadding1"
+                android:layout_toRightOf="@+id/tvIcon1"
+                android:layout_toLeftOf="@+id/swNotification"
+                android:text="Set time for daily notification "
+                style="@style/mp_wp"
+                />
+
+            <Switch
+                android:id="@+id/swNotification"
+                style="@style/wp_mp"
+                android:layout_alignParentRight="true"/>
+
+            <texus.app.controls.TextViewWithBoldFont
+                android:id="@+id/tvChooseTime"
+                android:layout_below="@+id/tvHeadding2"
+                android:layout_toRightOf="@+id/tvIcon1"
+                android:background="@drawable/bg_rounded_disabled"
+                android:layout_centerHorizontal="true"
+                android:text="8:00 PM"
+                style="@style/style_button2"
+                android:onClick="scoreBoard"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#bababa"/>
+
+        <RelativeLayout
+            style="@style/settings_rel1">
+
+            <ImageView
+                style="@style/settings_image_icon"
+                android:id="@+id/tvIcon2"
+                android:src="@drawable/ic_reset"/>
+
+            <texus.app.controls.TextViewWithBoldFont
+                android:id="@+id/tvHeadding3"
+                android:layout_toRightOf="@+id/tvIcon2"
+                android:layout_toLeftOf="@+id/tvResetQuiz"
+                android:text="Reset Quiz"
+                style="@style/mp_wp"
+                />
+            <texus.app.controls.TextViewWithFont
+                android:id="@+id/tvHeadding4"
+                android:layout_below="@+id/tvHeadding3"
+                android:layout_toRightOf="@+id/tvIcon2"
+                android:layout_toLeftOf="@+id/tvResetQuiz"
+                android:text="This will clear all your marked answeres"
+                style="@style/mp_wp"
+                />
+
+
+            <texus.app.controls.TextViewWithBoldFont
+                android:id="@+id/tvResetQuiz"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_rounded1_xml"
+                android:layout_centerHorizontal="true"
+                android:text="Reset"
+                style="@style/style_button2"
+                android:onClick="scoreBoard"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#bababa"/>
+
+        <LinearLayout
+            style="@style/mp_wp"
+            android:orientation="vertical">
+
+            <texus.app.controls.TextViewWithBoldFont
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_rounded3_xml"
+                android:layout_centerHorizontal="true"
+                android:text="Feedback"
+                style="@style/style_button3"
+                android:onClick="scoreBoard"/>
+
+            <texus.app.controls.TextViewWithBoldFont
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_rounded2_xml"
+                android:layout_centerHorizontal="true"
+                android:text="Like Us"
+                style="@style/style_button3"
+                android:onClick="scoreBoard"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

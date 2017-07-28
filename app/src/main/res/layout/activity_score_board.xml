@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/mp_mp"
+    android:background="#e6e6e6"
+    android:padding="15dp">
+
+    <LinearLayout
+        style="@style/mp_wp"
+        android:background="@drawable/bg_rounded_white2"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            style="@style/style_rel_score_item">
+            <texus.app.controls.TextViewWithFont
+                style="@style/style_rel_item_name"
+                android:text="Correct"
+                android:textColor="@color/ans_correct"
+                android:layout_toLeftOf="@+id/tvCorrectAnswer"/>
+
+            <texus.app.controls.TextViewWithFont
+                style="@style/style_rel_item_value"
+                android:id="@+id/tvCorrectAnswer"
+                android:textColor="@color/ans_correct"
+                android:text="23"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/style_rel_score_item">
+            <texus.app.controls.TextViewWithFont
+                style="@style/style_rel_item_name"
+                android:text="Wrong"
+                android:textColor="@color/ans_wrong"
+                android:layout_toLeftOf="@+id/tvWrongAnswer"/>
+
+            <texus.app.controls.TextViewWithFont
+                style="@style/style_rel_item_value"
+                android:id="@+id/tvWrongAnswer"
+                android:textColor="@color/ans_wrong"
+                android:text="23"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            style="@style/style_rel_score_item">
+            <texus.app.controls.TextViewWithFont
+                style="@style/style_rel_item_name"
+                android:text="Unanswered"
+                android:textColor="@color/un_answered"
+                android:layout_toLeftOf="@+id/tvUnAnswered"/>
+
+            <texus.app.controls.TextViewWithFont
+                style="@style/style_rel_item_value"
+                android:id="@+id/tvUnAnswered"
+                android:textColor="@color/un_answered"
+                android:text="140"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            style="@style/style_rel_score_item">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_centerInParent="true"
+                android:id="@+id/pieChart"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+
+                />
+        </RelativeLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</ScrollView>

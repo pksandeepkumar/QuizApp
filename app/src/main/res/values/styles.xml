@@ -45,4 +45,58 @@
     </style>
 
 
+
+    <style name="style_rel_score_item" parent="mp_wp">
+        <item name="android:padding">10dp</item>
+    </style>
+
+
+
+    <style name="style_rel_item_name" parent="mp_wp">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="style_rel_item_value" parent="wp_wp">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="style_button2">
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+
+    <style name="style_button3">
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+
+
+
+    <style name="settings_rel1" parent="mp_wp">
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="settings_image_icon" >
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
 </resources>

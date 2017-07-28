@@ -21,5 +21,6 @@
 
     <color name="ans_correct">#43A047</color>
     <color name="ans_wrong">#f44336</color>
+    <color name="un_answered">#8b8989</color>
 
 </resources>
