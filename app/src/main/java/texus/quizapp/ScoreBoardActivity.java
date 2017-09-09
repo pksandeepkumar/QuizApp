@@ -1,9 +1,12 @@
 package texus.quizapp;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,11 +21,21 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.util.ArrayList;
 
+import texus.app.controls.TextViewWithFont;
+import texus.app.database.DatabasesHelper;
+import texus.app.dialog.ProgressDialogLarge;
 import texus.app.model.PieChartData;
+import texus.app.model.Question;
+import texus.app.utils.AppMessages;
 
 public class ScoreBoardActivity extends BaseAppCompatActivity {
 
     private PieChart mPieChart;
+    TextViewWithFont tvCorrectAnswer;
+    TextViewWithFont tvWrongAnswer;
+    TextViewWithFont tvUnAnswered;
+    TextView tvTotalQuestions;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,28 +46,59 @@ public class ScoreBoardActivity extends BaseAppCompatActivity {
 
     }
 
+    public void setBackButton() {
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
+    }
+
     public void setUpToolbar() {
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null) {
             actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-            actionBar.setCustomView(R.layout.toolbar_quiz_activity);
+            actionBar.setCustomView(R.layout.toolbar_quiz_activity_left);
             View customView = actionBar.getCustomView();
             if(customView != null) {
                 TextView tvTitle = (TextView) customView.findViewById(R.id.tvTitle);
                 tvTitle.setText("Score Board");
             }
+            setBackButton();
         }
     }
 
     @Override
     public void initViews() {
         mPieChart = (PieChart) this.findViewById(R.id.pieChart);
-        setValues(12, 34, 145);
+        tvCorrectAnswer = (TextViewWithFont) this.findViewById(R.id.tvCorrectAnswer);
+        tvWrongAnswer = (TextViewWithFont) this.findViewById(R.id.tvWrongAnswer);
+        tvUnAnswered = (TextViewWithFont) this.findViewById(R.id.tvUnAnswered);
+        tvTotalQuestions = (TextView) this.findViewById(R.id.tvTotalQuestions);
+        ReadFromDbTask task = new ReadFromDbTask(this);
+        task.execute();
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_share) {
+            return true;
+        }
+        if(id == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
     public void setValues(int correct, int wrong, int unAnswered) {
+        tvCorrectAnswer.setText("" + correct);
+        tvWrongAnswer.setText("" + wrong);
+        tvUnAnswered.setText("" + unAnswered);
+        tvTotalQuestions.setText("" + (correct + wrong + unAnswered) );
+
         ArrayList<PieChartData> list = new ArrayList<PieChartData>();
         list.add( new PieChartData("", correct, ResourcesCompat.getColor(getResources(),
                 R.color.ans_correct, null)));
@@ -116,6 +160,43 @@ public class ScoreBoardActivity extends BaseAppCompatActivity {
         legend.setYEntrySpace(0f);
         legend.setYOffset(0f);
         legend.setFormSize(0f);
+    }
+
+
+    public class ReadFromDbTask extends AsyncTask<Void, Void, Void> {
+        Context context;
+//        ProgressDialogLarge dialogLarge;
+        int correctAnswerCount;
+        int wrongAnswerCount;
+        int unAnsweredCount;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+//            dialogLarge.show();
+        }
+
+        public ReadFromDbTask(Context context) {
+            this.context = context;
+//            dialogLarge = new ProgressDialogLarge(context);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            DatabasesHelper databasesHelper = new DatabasesHelper(context);
+            correctAnswerCount = Question.getCorrectAnsweredCount(databasesHelper);
+            wrongAnswerCount = Question.getWrongAnsweredCount(databasesHelper);
+            unAnsweredCount = Question.getUnAnsweredCount(databasesHelper);
+            databasesHelper.close();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+//            dialogLarge.hide();
+            setValues(correctAnswerCount, wrongAnswerCount, unAnsweredCount);
+
+        }
     }
 
 

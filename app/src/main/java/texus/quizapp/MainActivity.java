@@ -12,6 +12,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ import texus.app.utils.AppMessages;
 public class MainActivity extends BaseAppCompatActivity {
 
     TextView tvPleaseWait;
-    AVLoadingIndicatorView avlProgress;
+    ProgressBar avlProgress;
     ImageView imSplashScreen;
     TextView tvBe;
     RelativeLayout rlHolder;
@@ -39,7 +40,7 @@ public class MainActivity extends BaseAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
         initViews();
         setViews();
 
@@ -56,7 +57,7 @@ public class MainActivity extends BaseAppCompatActivity {
         tvBe            = (TextView) findViewById(R.id.tvBe);
         tvPleaseWait    = (TextView) findViewById(R.id.tvPleaseWait);
         rlHolder        = (RelativeLayout) findViewById(R.id.rlHolder);
-        avlProgress     = (AVLoadingIndicatorView) findViewById(R.id.avlProgress);
+        avlProgress     = (ProgressBar) findViewById(R.id.avlProgress);
         rotatingTextWrapper = (RotatingTextWrapper) findViewById(R.id.custom_switcher);
     }
 

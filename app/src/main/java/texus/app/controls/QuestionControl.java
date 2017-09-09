@@ -125,10 +125,9 @@ public class QuestionControl extends RelativeLayout {
 
     }
 
-    public class LoadQuestionTask  extends AsyncTask<Void, Void, Void> {
+    public class LoadQuestionTask  extends AsyncTask<Void, Void, Question> {
 
         Context context;
-        Question question;
         int questionID;
 
         @Override
@@ -142,18 +141,19 @@ public class QuestionControl extends RelativeLayout {
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Question doInBackground(Void... params) {
+            if(context == null) return null;
             DatabasesHelper dbHelper = new DatabasesHelper(context);
-            question = Question.getAnObjectQuestionID(dbHelper, questionID);
+            Question question = Question.getAnObjectQuestionID(dbHelper, questionID);
             dbHelper.close();
-            return null;
+            return question;
         }
 
         @Override
-        protected void onPostExecute(Void result) {
+        protected void onPostExecute(Question result) {
             super.onPostExecute(result);
-            if(question != null) {
-                setQuestion(question);
+            if(result != null) {
+                setQuestion(result);
             }
         }
 

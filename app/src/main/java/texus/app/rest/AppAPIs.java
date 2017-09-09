@@ -19,16 +19,16 @@ import texus.app.rest.pojos.getquiz.GetQuizPOJO;
  */
 public interface AppAPIs {
 
-    @POST("getQuizList")
+    @POST("getQuizList.php")
     public Call<GetQuizPOJO> getQuizList();
 
-    @POST("getQuestions")
+    @POST("getQuestions.php")
     public Call<GetQuestionsPOJO> getQuestions(@Body RequestBody params);
 
-    @POST("addQuestion")
+    @POST("addQuestion.php")
     public Call<AddResponsePOJO> addQuestion(@Body RequestBody params);
 
-    @POST("addQuestion")
+    @POST("addQuestion.php")
     public Call<AddResponsePOJO> addQuiz(@Body RequestBody params);
 
 

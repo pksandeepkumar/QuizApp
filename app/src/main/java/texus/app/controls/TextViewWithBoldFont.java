@@ -45,7 +45,7 @@ public class TextViewWithBoldFont extends AppCompatTextView {
     public static void loadFont(Context ctx) {
         if(typeface != null) return ;
         try {
-            typeface = Typeface.createFromAsset(ctx.getAssets(), "fonts/Montserrat-Bold.ttf");
+//            typeface = Typeface.createFromAsset(ctx.getAssets(), "fonts/Montserrat-Bold.ttf");
         } catch (Exception e) {
         }
     }

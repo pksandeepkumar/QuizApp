@@ -46,7 +46,7 @@ public class TextViewWithFont extends AppCompatTextView {
     public static void loadFont(Context ctx) {
         if(typeface != null) return ;
         try {
-            typeface = Typeface.createFromAsset(ctx.getAssets(), "fonts/Montserrat-Light.ttf");
+//            typeface = Typeface.createFromAsset(ctx.getAssets(), "fonts/Montserrat-Light.ttf");
         } catch (Exception e) {
         }
     }

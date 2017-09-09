@@ -13,7 +13,7 @@
             style="@style/style_rel_score_item">
             <texus.app.controls.TextViewWithFont
                 style="@style/style_rel_item_name"
-                android:text="Correct"
+                android:text="Correct Answers"
                 android:textColor="@color/ans_correct"
                 android:layout_toLeftOf="@+id/tvCorrectAnswer"/>
 
@@ -21,7 +21,7 @@
                 style="@style/style_rel_item_value"
                 android:id="@+id/tvCorrectAnswer"
                 android:textColor="@color/ans_correct"
-                android:text="23"
+                android:text="--"
                 />
         </RelativeLayout>
 
@@ -29,7 +29,7 @@
             style="@style/style_rel_score_item">
             <texus.app.controls.TextViewWithFont
                 style="@style/style_rel_item_name"
-                android:text="Wrong"
+                android:text="Wrong Answers"
                 android:textColor="@color/ans_wrong"
                 android:layout_toLeftOf="@+id/tvWrongAnswer"/>
 
@@ -37,7 +37,7 @@
                 style="@style/style_rel_item_value"
                 android:id="@+id/tvWrongAnswer"
                 android:textColor="@color/ans_wrong"
-                android:text="23"
+                android:text="--"
                 />
         </RelativeLayout>
 
@@ -46,7 +46,7 @@
             style="@style/style_rel_score_item">
             <texus.app.controls.TextViewWithFont
                 style="@style/style_rel_item_name"
-                android:text="Unanswered"
+                android:text="Pending Questions"
                 android:textColor="@color/un_answered"
                 android:layout_toLeftOf="@+id/tvUnAnswered"/>
 
@@ -54,7 +54,25 @@
                 style="@style/style_rel_item_value"
                 android:id="@+id/tvUnAnswered"
                 android:textColor="@color/un_answered"
-                android:text="140"
+                android:text="--"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/style_rel_score_item">
+            <TextView
+                style="@style/style_rel_item_name"
+                android:text="Total Questions"
+                android:textStyle="bold"
+                android:textColor="@color/main_text_color"
+                android:layout_toLeftOf="@+id/tvTotalQuestions"/>
+
+            <TextView
+                style="@style/style_rel_item_value"
+                android:id="@+id/tvTotalQuestions"
+                android:textStyle="bold"
+                android:textColor="@color/main_text_color"
+                android:text="--"
                 />
         </RelativeLayout>
 

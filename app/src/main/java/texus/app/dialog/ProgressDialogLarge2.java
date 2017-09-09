@@ -11,11 +11,10 @@ import texus.quizapp.R;
 /**
  * Created by sandeep on 21/2/17.
  *
- * https://github.com/81813780/AVLoadingIndicatorView
  */
-public class ProgressDialogLarge extends Dialog {
+public class ProgressDialogLarge2 extends Dialog {
 
-    public ProgressDialogLarge(Context context) {
+    public ProgressDialogLarge2(Context context) {
         super(context);
         init();
     }
@@ -24,7 +23,7 @@ public class ProgressDialogLarge extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setBackgroundDrawable(
                 new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        setContentView(R.layout.dialog_progress_dialog_large);
+        setContentView(R.layout.dialog_progress_dialog_large2);
         setCanceledOnTouchOutside(false);
         setCancelable(false);
     }

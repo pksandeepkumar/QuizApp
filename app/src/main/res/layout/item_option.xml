@@ -21,7 +21,7 @@
     <texus.app.controls.TextViewWithFont
         android:id="@+id/tvOptionText"
         android:layout_toRightOf="@+id/btnOption"
-        android:text="Option"
+        android:text="Loading...."
         android:textColor="@color/main_text_color"
         android:layout_margin="5dp"
         android:paddingTop="20dp"

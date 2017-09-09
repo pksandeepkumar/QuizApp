@@ -91,6 +91,7 @@ public class Question extends BaseDataModel  {
             this.quizId = quizId;
             question_id = AppConstance.INVALID_VALUE;
             this.version = version;
+            userAnswer = UNANSWER_STRING;
 
 
         }
@@ -108,6 +109,7 @@ public class Question extends BaseDataModel  {
             quizId = (question.getQuizId() == null)? 0 :question.getQuizId();
             question_id = (question.getId() == null)? 0 :question.getId();
             version = (question.getVersion() == null)? 0 :question.getVersion();
+            userAnswer = UNANSWER_STRING;
         }
 
     }
@@ -212,6 +214,15 @@ public class Question extends BaseDataModel  {
         sqld.close();
     }
 
+    public static int  resetQuiz(DatabasesHelper db) {
+        SQLiteDatabase sqld = db.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(USER_ANSWER, UNANSWER_STRING);
+        int updatedCount = sqld.update(TABLE_NAME, cv, null, null);
+        sqld.close();
+        return updatedCount;
+    }
+
     public static void setViewed(DatabasesHelper db, Question object) {
         if( object == null) return;
         SQLiteDatabase sqld = db.getWritableDatabase();
@@ -262,6 +273,8 @@ public class Question extends BaseDataModel  {
         }
         return instance;
     }
+
+
 
 
     public static ArrayList<Question> getAllObjects(DatabasesHelper db) {
@@ -343,12 +356,34 @@ public class Question extends BaseDataModel  {
     }
 
     //Retruns IDs of viewed or unviewed questions
-    public static ArrayList<Question> getAllObjectsIDViewed(DatabasesHelper db, boolean viewed) {
+    public static ArrayList<Question> getAllObjectsIdNotViewed(DatabasesHelper db) {
+        boolean viewed = false;
         ArrayList<Question> objects = new ArrayList<Question>();
         SQLiteDatabase dbRead = db.getReadableDatabase();
         String query = "select " + ID + "," + QUESTION_ID
                 + "  from " + TABLE_NAME + " WHERE " + VIEWED
-                + " = " + (viewed ? 1 : 0) ;
+                + " = " + (viewed ? 1 : 0) + " AND "
+                + USER_ANSWER + " = '" + UNANSWER_STRING + "'" ;
+        Cursor c = dbRead.rawQuery(query, null);
+        if (c.moveToFirst()) {
+            do {
+                objects.add(getIdOnlyFromCursor(c));
+            } while ( c.moveToNext()) ;
+        }
+        c.close();
+        dbRead.close();
+        return objects;
+    }
+
+    public static ArrayList<Question> getAllObjectsIdViewed(DatabasesHelper db) {
+        boolean viewed = true;
+        ArrayList<Question> objects = new ArrayList<Question>();
+        SQLiteDatabase dbRead = db.getReadableDatabase();
+        String query = "select " + ID + "," + QUESTION_ID
+                + "  from " + TABLE_NAME + " WHERE " + VIEWED
+                + " = " + (viewed ? 1 : 0) + " AND "
+                + USER_ANSWER + " = '" + UNANSWER_STRING + "'" ;
+        ;
         Cursor c = dbRead.rawQuery(query, null);
         if (c.moveToFirst()) {
             do {
@@ -375,11 +410,11 @@ public class Question extends BaseDataModel  {
         return objects;
     }
 
-    public static ArrayList<Question> getAllObjectsIDAnswered(DatabasesHelper db, boolean viewed) {
+    public static ArrayList<Question> getAllAnsweredID(DatabasesHelper db) {
         ArrayList<Question> objects = new ArrayList<Question>();
         SQLiteDatabase dbRead = db.getReadableDatabase();
-        String query = "select * from " + TABLE_NAME + " WHERE " + VIEWED
-                + " = " + (viewed ? 1 : 0) ;;
+        String query = " select "  + ID + "," + QUESTION_ID + " from "
+                + TABLE_NAME + " where " + USER_ANSWER + " != '" + UNANSWER_STRING + "'" ;
         Cursor c = dbRead.rawQuery(query, null);
         if (c.moveToFirst()) {
             do {
@@ -390,6 +425,22 @@ public class Question extends BaseDataModel  {
         dbRead.close();
         return objects;
     }
+
+//    public static ArrayList<Question> getAllObjectsIDAnswered(DatabasesHelper db, boolean viewed) {
+//        ArrayList<Question> objects = new ArrayList<Question>();
+//        SQLiteDatabase dbRead = db.getReadableDatabase();
+//        String query = "select * from " + TABLE_NAME + " WHERE " + VIEWED
+//                + " = " + (viewed ? 1 : 0) ;;
+//        Cursor c = dbRead.rawQuery(query, null);
+//        if (c.moveToFirst()) {
+//            do {
+//                objects.add(getIdOnlyFromCursor(c));
+//            } while ( c.moveToNext()) ;
+//        }
+//        c.close();
+//        dbRead.close();
+//        return objects;
+//    }
 
     public static int getAllQuestionsCount(DatabasesHelper db, Context context) {
         SQLiteDatabase dbRead = db.getReadableDatabase();
@@ -403,7 +454,7 @@ public class Question extends BaseDataModel  {
     }
 
 
-    public static int getUnAnsweredQuestionsCount(DatabasesHelper db, Context context) {
+    public static int getUnAnsweredCount(DatabasesHelper db) {
 
         SQLiteDatabase dbRead = db.getReadableDatabase();
         String query = " select " + QUESTION_ID  +" from "
@@ -416,11 +467,24 @@ public class Question extends BaseDataModel  {
         return count;
     }
 
-    public static int getCorrectAnswerQuestionsCount(DatabasesHelper db, Context context) {
+    public static int getCorrectAnsweredCount(DatabasesHelper db) {
         SQLiteDatabase dbRead = db.getReadableDatabase();
         String query = " select " + QUESTION_ID  +" from "
                 + TABLE_NAME + " where " + USER_ANSWER
                 + " = " + ANSWER_KEY ;
+        Cursor c = dbRead.rawQuery(query, null);
+        int count = c.getCount();
+        c.close();
+        dbRead.close();
+        db.close();
+        return count;
+    }
+
+    public static int getWrongAnsweredCount(DatabasesHelper db) {
+        SQLiteDatabase dbRead = db.getReadableDatabase();
+        String query = " select " + QUESTION_ID  +" from "
+                + TABLE_NAME + " where " + USER_ANSWER
+                + " != " + ANSWER_KEY  + " AND " + USER_ANSWER + " != '" + UNANSWER_STRING + "'";
         Cursor c = dbRead.rawQuery(query, null);
         int count = c.getCount();
         c.close();

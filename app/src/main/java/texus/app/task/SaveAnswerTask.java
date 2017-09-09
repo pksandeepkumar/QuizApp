@@ -29,6 +29,7 @@ public class SaveAnswerTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
+        if( context == null || object == null ) return null;
         DatabasesHelper dbHelper = new DatabasesHelper(context);
         Question.saveAnswer(dbHelper, object);
         dbHelper.close();

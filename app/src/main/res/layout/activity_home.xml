@@ -116,8 +116,8 @@
                 style="@style/wp_wp"
                 android:background="@drawable/blank_xml"
                 android:clickable="true"
-                android:onClick="feedback"
-                android:text=" Feedback "
+                android:onClick="openSettings"
+                android:text=" Settings "
                 android:textColor="@color/home_text_color"
                 android:padding="@dimen/home_text_padding"/>
         </LinearLayout>

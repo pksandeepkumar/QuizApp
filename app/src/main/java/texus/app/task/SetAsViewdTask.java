@@ -27,9 +27,11 @@ public class SetAsViewdTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        DatabasesHelper dbHelper = new DatabasesHelper(context);
-        Question.setViewed(dbHelper, object);
-        dbHelper.close();
+        if( context != null) {
+            DatabasesHelper dbHelper = new DatabasesHelper(context);
+            Question.setViewed(dbHelper, object);
+            dbHelper.close();
+        }
         return null;
     }
 

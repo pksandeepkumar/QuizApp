@@ -29,6 +29,27 @@
         <activity android:name=".QuizActivity"/>
         <activity android:name=".ScoreBoardActivity"/>
         <activity android:name=".SettingsActivity"/>
+        <activity android:name=".AlarmHandlerActivity"/>
+
+
+        <receiver android:name="texus.app.boot.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="texus.app.alarm.AlarmReceiver"/>
+
+        <receiver
+            android:name="texus.app.alarm.TimeChanged"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 

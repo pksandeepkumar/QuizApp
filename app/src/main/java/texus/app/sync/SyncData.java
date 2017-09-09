@@ -23,6 +23,7 @@ public class SyncData {
 
     public Context context;
     public boolean errorOccured = false;
+    public int numberOfQuestions = 0;
 
     //If this is true, whole db operations should be in background task
     public boolean doDbOperationsInBackground;
@@ -112,6 +113,7 @@ public class SyncData {
                         SaveValuesTask task = new SaveValuesTask(objects, context);
                         task.execute();
                         if( size != 0) {
+                            numberOfQuestions = numberOfQuestions + size;
                             SavedPreferance.setVersion(context, version);
                         }
                     }

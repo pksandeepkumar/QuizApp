@@ -31,7 +31,7 @@
             android:layout_margin="5dp"
             android:layout_toRightOf="@+id/btnQuestion"
             android:paddingTop="20dp"
-            android:text="Option"
+            android:text="Loading..."
             android:textColor="@color/main_text_color"
             android:textSize="15sp" />
 
