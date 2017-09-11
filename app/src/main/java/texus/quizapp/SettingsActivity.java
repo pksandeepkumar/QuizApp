@@ -37,6 +37,7 @@ public class SettingsActivity extends BaseAppCompatActivity {
 
     TextView tvTitle;
     Context context;
+    ProgressDialogLarge dialogLarge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +118,15 @@ public class SettingsActivity extends BaseAppCompatActivity {
 
     }
 
-    public void performSetTime( View view ) {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(dialogLarge != null) {
+            dialogLarge.dismiss();
+        }
+    }
+
+    public void performSetTime(View view ) {
         final TextViewWithBoldFont tv = (TextViewWithBoldFont) view;
         Calendar mcurrentTime = Calendar.getInstance();
         int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
@@ -208,7 +217,7 @@ public class SettingsActivity extends BaseAppCompatActivity {
 
     public class ResetQuizTask extends AsyncTask<Void, Void, Void> {
         Context context;
-        ProgressDialogLarge dialogLarge;
+
         int updatedCount;
         @Override
         protected void onPreExecute() {
@@ -233,7 +242,8 @@ public class SettingsActivity extends BaseAppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            dialogLarge.hide();
+            dialogLarge.dismiss();
+//            dialogLarge.dismiss();
             if(updatedCount > 0) {
                 AppMessages.displayMessage("Quiz reset success!!!");
             }

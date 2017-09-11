@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.sdsmdg.harjot.rotatingtext.RotatingTextWrapper;
 import com.sdsmdg.harjot.rotatingtext.models.Rotatable;
 
+import texus.app.adapter.WalkThroughAdapter;
 import texus.app.dialog.ProgressDialogLarge;
 import texus.app.sync.SyncData;
 import texus.app.utils.AppMessages;

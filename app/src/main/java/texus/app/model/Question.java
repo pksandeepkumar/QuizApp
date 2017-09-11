@@ -382,7 +382,7 @@ public class Question extends BaseDataModel  {
         String query = "select " + ID + "," + QUESTION_ID
                 + "  from " + TABLE_NAME + " WHERE " + VIEWED
                 + " = " + (viewed ? 1 : 0) + " AND "
-                + USER_ANSWER + " = '" + UNANSWER_STRING + "'" ;
+                + USER_ANSWER + " = '" + UNANSWER_STRING + "' " ;
         ;
         Cursor c = dbRead.rawQuery(query, null);
         if (c.moveToFirst()) {

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <Button
+            android:layout_margin="10dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/bg_cb_option"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="A"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:layout_width="@dimen/circle_button_height"
+            android:layout_height="@dimen/circle_button_height" />
+
+        <Button
+            android:layout_margin="10dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/bg_cb_option"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="B"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:layout_width="@dimen/circle_button_height"
+            android:layout_height="@dimen/circle_button_height" />
+
+        <Button
+            android:layout_margin="10dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/bg_cb_option"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="C"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:layout_width="@dimen/circle_button_height"
+            android:layout_height="@dimen/circle_button_height" />
+
+        <Button
+            android:layout_margin="10dp"
+            android:scaleType="fitCenter"
+            android:background="@drawable/bg_cb_option"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="D"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:layout_width="@dimen/circle_button_height"
+            android:layout_height="@dimen/circle_button_height" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:id="@+id/imHand"
+        android:layout_width="@dimen/circle_button_height"
+        android:layout_height="@dimen/circle_button_height"
+        android:src="@drawable/ic_hand"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"/>
+
+    <texus.app.controls.TextViewWithFont
+        android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/imHand"
+        android:text="Click on option to mark your answer"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+
+
+
+
+
+</RelativeLayout>

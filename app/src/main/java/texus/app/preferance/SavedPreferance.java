@@ -17,7 +17,19 @@ public class SavedPreferance {
 	private static final String ALARM_HOUR = "AlarmHour";
 	private static final String ALARM_MINUTE = "AlarmMinute";
 	private static final String VERSION = "Version";
+	private static final String HELP_VIEWED = "HelpViewed";
 	private static final String NOTIFICATION_ALARM = "NotificationAlarm";
+
+
+	public static void setHelpViewed(Context context, boolean status) {
+		Editor edit = getPreferance(context).edit();
+		edit.putBoolean(HELP_VIEWED, status);
+		edit.commit();
+	}
+
+	public static boolean getHelpViewed(Context context) {
+		return getPreferance(context).getBoolean(HELP_VIEWED, false);
+	}
 
 	public static void setAlarmActive(Context context, boolean status) {
 		Editor edit = getPreferance(context).edit();

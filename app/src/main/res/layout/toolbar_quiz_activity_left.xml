@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="left"
-        android:text="my Title"
+        android:text=""
         android:textColor="#ffffff"
         android:id="@+id/tvTitle"
         android:textSize="18sp" />

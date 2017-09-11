@@ -8,6 +8,7 @@
     <dimen name="circle_button_height_half">25dp</dimen>
 
     <dimen name="fab_width">20dp</dimen>
+    <dimen name="pager_indecator_width">2dp</dimen>
     <dimen name="fab_width_large">50dp</dimen>
 
     <dimen name="design_fab_size_mini" tools:override="true">20dp</dimen>

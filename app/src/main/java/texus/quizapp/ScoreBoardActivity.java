@@ -31,9 +31,9 @@ import texus.app.utils.AppMessages;
 public class ScoreBoardActivity extends BaseAppCompatActivity {
 
     private PieChart mPieChart;
-    TextViewWithFont tvCorrectAnswer;
-    TextViewWithFont tvWrongAnswer;
-    TextViewWithFont tvUnAnswered;
+    TextView tvCorrectAnswer;
+    TextView tvWrongAnswer;
+    TextView tvUnAnswered;
     TextView tvTotalQuestions;
 
 
@@ -71,9 +71,9 @@ public class ScoreBoardActivity extends BaseAppCompatActivity {
     @Override
     public void initViews() {
         mPieChart = (PieChart) this.findViewById(R.id.pieChart);
-        tvCorrectAnswer = (TextViewWithFont) this.findViewById(R.id.tvCorrectAnswer);
-        tvWrongAnswer = (TextViewWithFont) this.findViewById(R.id.tvWrongAnswer);
-        tvUnAnswered = (TextViewWithFont) this.findViewById(R.id.tvUnAnswered);
+        tvCorrectAnswer = (TextView) this.findViewById(R.id.tvCorrectAnswer);
+        tvWrongAnswer = (TextView) this.findViewById(R.id.tvWrongAnswer);
+        tvUnAnswered = (TextView) this.findViewById(R.id.tvUnAnswered);
         tvTotalQuestions = (TextView) this.findViewById(R.id.tvTotalQuestions);
         ReadFromDbTask task = new ReadFromDbTask(this);
         task.execute();
@@ -162,22 +162,32 @@ public class ScoreBoardActivity extends BaseAppCompatActivity {
         legend.setFormSize(0f);
     }
 
+    ProgressDialogLarge dialogLarge;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(dialogLarge != null) {
+            dialogLarge.dismiss();
+        }
+    }
+
 
     public class ReadFromDbTask extends AsyncTask<Void, Void, Void> {
         Context context;
-//        ProgressDialogLarge dialogLarge;
+        ProgressDialogLarge dialogLarge;
         int correctAnswerCount;
         int wrongAnswerCount;
         int unAnsweredCount;
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-//            dialogLarge.show();
+            dialogLarge.show();
         }
 
         public ReadFromDbTask(Context context) {
             this.context = context;
-//            dialogLarge = new ProgressDialogLarge(context);
+            dialogLarge = new ProgressDialogLarge(context);
         }
 
         @Override
@@ -193,7 +203,7 @@ public class ScoreBoardActivity extends BaseAppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-//            dialogLarge.hide();
+            dialogLarge.dismiss();
             setValues(correctAnswerCount, wrongAnswerCount, unAnsweredCount);
 
         }
